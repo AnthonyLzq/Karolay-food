@@ -45,7 +45,9 @@ const mailer = async (
   }
 
   try {
-    await transporter.sendMail(mailOptions)
+    const result = await transporter.sendMail(mailOptions)
+    console.log('Everything went ok')
+    console.log(result)
   } catch (err) {
     console.error(err)
     throw new Error('Error while sending the email.')

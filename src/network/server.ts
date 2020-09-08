@@ -8,10 +8,14 @@ class Server {
 
   constructor () {
     this.app = express()
-    this._config()
   }
 
-  private _config () {
+  public start (): void {
+    this._config()
+    this._mail()
+  }
+
+  private _config (): void {
     this.app.set('port', process.env.PORT as string || '3000')
     this.app.use(morgan('dev'))
     this.app.use(express.json())
@@ -32,6 +36,11 @@ class Server {
     )
     applyRoutes(this.app)
   }
+
+  // private async _cron () {
+
+  // }
+
 
   // eslint-disable-next-line class-methods-use-this
   private async _mail (): Promise<void> {
