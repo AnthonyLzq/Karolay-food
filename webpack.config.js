@@ -1,7 +1,5 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
-const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin')
-const currentYear = new Date().getFullYear()
 
 module.exports = {
   context: __dirname,
@@ -21,15 +19,6 @@ module.exports = {
   node: {
     __dirname: false
   },
-  plugins: [
-    new MomentTimezoneDataPlugin({
-      matchZones: /^America/
-    }),
-    new MomentTimezoneDataPlugin({
-      startYear: currentYear - 5,
-      endYear  : currentYear + 5,
-    }),
-  ],
   resolve: {
     extensions: ['.ts', '.js']
   },

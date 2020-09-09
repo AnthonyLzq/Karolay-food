@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import nodemailer from 'nodemailer'
 
 const {
@@ -9,11 +8,12 @@ const {
 } = process.env
 
 const mailer = async (
-  error  : boolean,
-  food   : string,
-  message: string
+  isForKarolay : boolean,
+  food         : string,
+  message      : string | null,
+  messageNumber: number | null = null
 ): Promise<void> => {
-  let subject = ''
+  let subject: string
   const transporter = nodemailer.createTransport({
     auth: {
       pass: PASSWORD as string,
@@ -22,27 +22,38 @@ const mailer = async (
     service: 'Gmail'
   })
 
-  if (error)
-    subject = 'Error'
-  else
-    switch (food) {
-      case 'breakfast':
-        subject = "BREAKFAST TIME!"
-        break
-      case 'lunch':
-        subject = "LUNCH TIME!"
-        break
-      case 'dinner':
-        subject = "DINNER TIME!"
-    }
-
-  const mailOptions = {
-    from  : `Tu bbsito <${EMAIL_SENDER as string}>`,
-    sender: EMAIL_SENDER as string,
-    subject,
-    text  : message,
-    to    : error ? EMAIL_RECEPTOR_2 as string : EMAIL_RECEPTOR_1 as string
+  switch (food) {
+    case 'breakfast':
+      subject = `BREAKFAST TIME! REMINDER ${messageNumber}/4!`
+      break
+    case 'lunch':
+      subject = `LUNCH TIME! REMINDER ${messageNumber}/4!`
+      break
+    case 'dinner':
+      subject = `DINNER TIME! REMINDER ${messageNumber}/4!`
+      break
+    default:
+      subject = 'Mail delivered to Karolay'
   }
+
+  let mailOptions: Record<string, unknown>
+
+  if (isForKarolay)
+    mailOptions = {
+      from  : `Your bbsito <${EMAIL_SENDER as string}>`,
+      sender: EMAIL_SENDER as string,
+      subject,
+      text  : message,
+      to    : EMAIL_RECEPTOR_1 as string
+    }
+  else
+    mailOptions = {
+      from  : `Heroku server <${EMAIL_SENDER as string}>`,
+      sender: EMAIL_SENDER as string,
+      subject,
+      text  : `Food: ${food}.\nAttempt: ${messageNumber}.`,
+      to    : EMAIL_RECEPTOR_2 as string
+    }
 
   try {
     const result = await transporter.sendMail(mailOptions)

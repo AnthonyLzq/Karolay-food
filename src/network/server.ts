@@ -1,18 +1,17 @@
 import express from 'express'
 import morgan from 'morgan'
 import { applyRoutes } from './routes'
-import { mailer } from '../utils/mailer'
+import { cronJob } from '../utils/crontab.job'
+import { reminder } from '../utils/alarm.clock'
 
 class Server {
   public app: express.Application
+  private _foods: string[]
 
   constructor () {
     this.app = express()
-  }
-
-  public start (): void {
-    this._config()
-    this._mail()
+    // eslint-disable-next-line no-extra-parens
+    this._foods = (process.env.FOODS as string).split(':')
   }
 
   private _config (): void {
@@ -37,18 +36,19 @@ class Server {
     applyRoutes(this.app)
   }
 
-  // private async _cron () {
-
-  // }
-
-
-  // eslint-disable-next-line class-methods-use-this
   private async _mail (): Promise<void> {
-    try {
-      await mailer(true, 'test', 'this is a test')
-    } catch (error) {
-      console.error(error)
-    }
+    this._foods.forEach((food: string) => {
+      cronJob(0, food)
+    })
+  }
+
+  public start (): void {
+    this._config()
+    this.app.listen(this.app.get('port'), () =>
+      console.log(`Server running at port ${this.app.get('port')}`)
+    )
+    this._mail()
+    reminder()
   }
 }
 
