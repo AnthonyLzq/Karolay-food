@@ -1,5 +1,9 @@
 # Karolay-food
 
+## Version 1.0.1
+
+- Testing the schedule timezone.
+
 ## Version 1.0.0
 
 - Implemented:
