@@ -1,6 +1,6 @@
 {
   "name": "karolay-food",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/index.ts",
   "description": "A cron schedule server to remind Karolay when to eat",
   "scripts": {

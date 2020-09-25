@@ -1,5 +1,9 @@
 # Karolay-food
 
+## Version 1.0.2
+
+- Added dist folder.
+
 ## Version 1.0.1
 
 - Testing the schedule timezone.
