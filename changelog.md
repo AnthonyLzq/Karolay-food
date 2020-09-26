@@ -1,5 +1,9 @@
 # Karolay-food
 
+## Version 1.1.1
+
+- Added `console.log` to verify in production.
+
 ## Version 1.1.0
 
 - Removing `console.log`.

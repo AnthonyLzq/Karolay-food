@@ -60,6 +60,8 @@ const suitableCronJob = (
     }
   ).start()
 
+  console.log(selectedFoodTime)
+
   return new CronJob(
     selectedFoodTime,
     async () => {
