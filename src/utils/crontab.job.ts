@@ -14,21 +14,22 @@ const breakfastTime = moment().set({
   milliseconds: parseInt(breakfastTimeValues[3]),
   minute      : parseInt(breakfastTimeValues[1]),
   second      : parseInt(breakfastTimeValues[2])
-})
+}).tz(TIMEZONE)
 
 const lunchTime = moment().set({
   hour        : parseInt(lunchTimeValues[0]),
   milliseconds: parseInt(lunchTimeValues[3]),
   minute      : parseInt(lunchTimeValues[1]),
   second      : parseInt(lunchTimeValues[2])
-})
+}).tz(TIMEZONE)
 
+// Adding 1 day to the dinner for the time conversion
 const dinnerTime = moment().set({
   hour        : parseInt(dinnerTimeValues[0]),
   milliseconds: parseInt(dinnerTimeValues[3]),
   minute      : parseInt(dinnerTimeValues[1]),
   second      : parseInt(dinnerTimeValues[2])
-})
+}).add(1, 'day').tz(TIMEZONE)
 
 const foodSelector = (food: string): moment.Moment | undefined => {
   switch (food) {
@@ -78,7 +79,7 @@ const suitableCronJob = (
 }
 
 const cronJob = (attempts: number, food: string): void => {
-  const selectedFoodTime = foodSelector(food) as moment.Moment
+  const selectedFoodTime = (foodSelector(food) as moment.Moment)
   if (selectedFoodTime > moment())
     switch (attempts) {
       case 0:

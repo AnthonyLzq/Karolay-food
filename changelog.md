@@ -1,5 +1,10 @@
 # Karolay-food
 
+## Version 1.1.2
+
+- Added 1 day to the production version.
+- Adding the timezone again for testing.
+
 ## Version 1.1.1
 
 - Added `console.log` to verify in production.
