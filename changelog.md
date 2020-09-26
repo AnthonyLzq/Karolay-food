@@ -1,5 +1,9 @@
 # Karolay-food
 
+## Version 1.0.3
+
+- Testing the schedule timezone only in `webpack`.
+
 ## Version 1.0.2
 
 - Added dist folder.
