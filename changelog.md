@@ -1,8 +1,13 @@
 # Karolay-food
 
+## Version 1.1.0
+
+- Removing `console.log`.
+- Fixed schedule.
+
 ## Version 1.0.3
 
-- Testing the schedule timezone only in `webpack`.
+- Testing the schedule timezone only in [`webpack`](https://webpack.js.org/).
 
 ## Version 1.0.2
 
