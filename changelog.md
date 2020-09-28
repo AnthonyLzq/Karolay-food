@@ -1,5 +1,9 @@
 # Karolay-food
 
+## Version 1.1.3
+
+- Removed 1 day to the production version (dinner case).
+
 ## Version 1.1.2
 
 - Added 1 day to the production version.

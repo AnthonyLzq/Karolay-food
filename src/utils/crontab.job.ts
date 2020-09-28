@@ -29,7 +29,7 @@ const dinnerTime = moment().set({
   milliseconds: parseInt(dinnerTimeValues[3]),
   minute      : parseInt(dinnerTimeValues[1]),
   second      : parseInt(dinnerTimeValues[2])
-}).add(1, 'day').tz(TIMEZONE)
+}).tz(TIMEZONE)
 
 const foodSelector = (food: string): moment.Moment | undefined => {
   switch (food) {
