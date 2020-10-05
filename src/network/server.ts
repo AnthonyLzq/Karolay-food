@@ -48,7 +48,7 @@ class Server {
       console.log(`Server running at port ${this.app.get('port')}`)
     )
     this._mail()
-    reminder()
+    // reminder()
   }
 }
 

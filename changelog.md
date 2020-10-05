@@ -1,5 +1,11 @@
 # Karolay-food
 
+## Version 1.2.0
+
+- Implemented:
+  - Only one reminder.
+  - Turned off the auto ping.
+
 ## Version 1.1.3
 
 - Removed 1 day to the production version (dinner case).

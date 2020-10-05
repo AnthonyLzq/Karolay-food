@@ -89,8 +89,8 @@ const cronJob = (attempts: number, food: string): void => {
           `Hey honey, don't forget to have your ${food}!`,
           attempts + 1
         ).start()
-        selectedFoodTime.add(15, 'minutes')
-        cronJob(1, food)
+        // selectedFoodTime.add(15, 'minutes')
+        // cronJob(1, food)
         break
       case 1:
         suitableCronJob(
