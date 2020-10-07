@@ -24,13 +24,14 @@ const mailer = async (
 
   switch (food) {
     case 'breakfast':
-      subject = `BREAKFAST TIME! REMINDER ${messageNumber}/4!`
+      // subject = `BREAKFAST TIME! REMINDER ${messageNumber}/4!`
+      subject = `BREAKFAST TIME!`
       break
     case 'lunch':
-      subject = `LUNCH TIME! REMINDER ${messageNumber}/4!`
+      subject = `LUNCH TIME!`
       break
     case 'dinner':
-      subject = `DINNER TIME! REMINDER ${messageNumber}/4!`
+      subject = `DINNER TIME!`
       break
     default:
       subject = 'Mail delivered to Karolay'

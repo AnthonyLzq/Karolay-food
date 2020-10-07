@@ -1,5 +1,10 @@
 # Karolay-food
 
+## Version 1.2.2
+
+- Fixed:
+  - Mail message, not longer uses the message number.
+
 ## Version 1.2.1
 
 - Fixed:
