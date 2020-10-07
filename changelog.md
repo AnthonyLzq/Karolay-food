@@ -1,5 +1,10 @@
 # Karolay-food
 
+## Version 1.2.1
+
+- Fixed:
+  - Included compiled version of the last release.
+
 ## Version 1.2.0
 
 - Implemented:
